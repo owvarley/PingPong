@@ -1,7 +1,10 @@
 #!/bin/bash
 
 function checkServer {
-    if [ "$(ping -c 1 $1)" ]
+    ping -c 1 -W 5 $1 &> /dev/null
+    rc=$?
+
+    if [[ $rc -eq 0 ]]
     then
         echo $1 Ok
     else
