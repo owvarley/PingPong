@@ -14,5 +14,5 @@ function checkServer {
 while true
 do
     checkServer
-    sleep 30
+    sleep $TIME_BETWEEN_PINGS_S
 done
