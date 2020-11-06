@@ -1,18 +1,17 @@
 #!/bin/bash
 
-ServerIP=$1
-
 function checkServer {
-    if [ "$(ping -c 1 $ServerIP)" ]
+    if [ "$(ping -c 1 $1)" ]
     then
-        echo Ok
+        echo $1 Ok
     else
-        echo Not Ok
+        echo $1 not Ok
     fi
 }
 
 while true
 do
-    checkServer
+    checkServer $SERVER_A
+    checkServer $SERVER_B
     sleep $TIME_BETWEEN_PINGS_S
 done
